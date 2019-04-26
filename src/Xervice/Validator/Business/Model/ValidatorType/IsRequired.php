@@ -27,7 +27,6 @@ class IsRequired implements ValidatorInterface
 
     /**
      * @param string $key
-     * @param mixed $config
      *
      * @return string
      */

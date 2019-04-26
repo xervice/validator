@@ -13,7 +13,7 @@ interface ValidatorConfigurationProviderPluginInterface
      *  [
      *      'fieldOneAsArray' => [
      *          'required' => true
-     *          'type' => 'string'
+     *          'type' => \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_STRING
      *      ],
      *  ]
      *  [
@@ -25,7 +25,7 @@ interface ValidatorConfigurationProviderPluginInterface
      *  [
      *      'fieldFourIsArray.SubfieldOne' => [
      *          'required' => true
-     *          'type' => int
+     *          'type' => \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_INTEGER
      *      ],
      *      'fieldFileIsArray'
      *  ]
@@ -40,12 +40,15 @@ interface ValidatorConfigurationProviderPluginInterface
      * ]
      *
      * Possible types:
-     * - string
-     * - int
-     * - bool
-     * - array
-     * - object
-     * - float
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_INTEGER
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_STRING
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_INTEGER
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_DOUBLE
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_FLOAT
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_BOOLEAN
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_ARRAY
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_OBJECT
+     * - \Xervice\Validator\Business\Model\ValidatorType\IsType::TYPE_RESOURCE
      *
      * @return array
      */

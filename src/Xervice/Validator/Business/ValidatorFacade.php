@@ -15,12 +15,36 @@ class ValidatorFacade extends AbstractFacade
     /**
      * @param array $data
      * @param string $key
+     * @param $config
+     */
+    public function validateClosure(array $data, string $key, $config): void
+    {
+        $this->getFactory()
+            ->createClosureValidator()
+            ->validate($data, $key, $config);
+    }
+
+    /**
+     * @param array $data
+     * @param string $key
      * @param mixed $config
      */
     public function validateIsRequired(array $data, string $key, $config): void
     {
         $this->getFactory()
             ->createIsRequiredValidator()
+            ->validate($data, $key, $config);
+    }
+
+    /**
+     * @param array $data
+     * @param string $key
+     * @param mixed $config
+     */
+    public function validateIsType(array $data, string $key, $config): void
+    {
+        $this->getFactory()
+            ->createIsTypeValidator()
             ->validate($data, $key, $config);
     }
 

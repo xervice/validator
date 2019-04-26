@@ -5,6 +5,7 @@ namespace XerviceTest\Validator\Helper\ValidationConfiguration;
 
 
 use Xervice\Validator\Business\Dependency\ValidatorConfigurationProviderPluginInterface;
+use Xervice\Validator\Business\Model\ValidatorType\IsType;
 
 class TestValidatorConfig implements ValidatorConfigurationProviderPluginInterface
 {
@@ -19,16 +20,16 @@ class TestValidatorConfig implements ValidatorConfigurationProviderPluginInterfa
             'child',
             [
                 'unit' => [
-                    'type' => 'int'
+                    'type' => IsType::TYPE_INTEGER
                 ],
                 'floatTest' => [
-                    'type' => 'float'
+                    'type' => IsType::TYPE_FLOAT
                 ]
             ],
             [
                 'isTest' => [
                     'required' => true,
-                    'type' => 'bool'
+                    'type' => IsType::TYPE_BOOLEAN
                 ]
             ],
             [
@@ -37,10 +38,10 @@ class TestValidatorConfig implements ValidatorConfigurationProviderPluginInterfa
                 },
                 'child.subchild1',
                 'child.subchild2' => [
-                    'type' => 'object'
+                    'type' => IsType::TYPE_OBJECT
                 ],
                 'child.subchild3' => [
-                    'type' => 'bool'
+                    'type' => IsType::TYPE_BOOLEAN
                 ]
             ],
             [

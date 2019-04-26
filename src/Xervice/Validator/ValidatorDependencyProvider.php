@@ -6,7 +6,9 @@ namespace Xervice\Validator;
 
 use Xervice\Core\Business\Model\Dependency\Provider\AbstractDependencyProvider;
 use Xervice\Core\Business\Model\Dependency\DependencyContainerInterface;
+use Xervice\Validator\Communication\Plugin\ValidatorType\ClosureValidatorPlugin;
 use Xervice\Validator\Communication\Plugin\ValidatorType\IsRequiredPlugin;
+use Xervice\Validator\Communication\Plugin\ValidatorType\IsTypePlugin;
 
 /**
  * @method \Xervice\Core\Locator\Locator getLocator()
@@ -36,7 +38,9 @@ class ValidatorDependencyProvider extends AbstractDependencyProvider
     {
         $container[static::VALIDATOR_TYPE_PLUGINS] = function (DependencyContainerInterface $container) {
             return [
-                new IsRequiredPlugin()
+                new IsRequiredPlugin(),
+                new IsTypePlugin(),
+                new ClosureValidatorPlugin()
             ];
         };
 

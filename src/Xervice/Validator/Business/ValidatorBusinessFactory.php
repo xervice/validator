@@ -7,7 +7,9 @@ namespace Xervice\Validator\Business;
 use Xervice\Core\Business\Model\Factory\AbstractBusinessFactory;
 use Xervice\Validator\Business\Model\ValidatorProvider;
 use Xervice\Validator\Business\Model\ValidatorProviderInterface;
+use Xervice\Validator\Business\Model\ValidatorType\ClosureValidator;
 use Xervice\Validator\Business\Model\ValidatorType\IsRequired;
+use Xervice\Validator\Business\Model\ValidatorType\IsType;
 use Xervice\Validator\Business\Model\ValidatorType\ValidatorInterface;
 use Xervice\Validator\ValidatorDependencyProvider;
 
@@ -27,6 +29,22 @@ class ValidatorBusinessFactory extends AbstractBusinessFactory
             $configurationPlugins,
             $this->getValidatorTypePlugins()
         );
+    }
+
+    /**
+     * @return \Xervice\Validator\Business\Model\ValidatorType\ValidatorInterface
+     */
+    public function createClosureValidator(): ValidatorInterface
+    {
+        return new ClosureValidator();
+    }
+
+    /**
+     * @return \Xervice\Validator\Business\Model\ValidatorType\ValidatorInterface
+     */
+    public function createIsTypeValidator(): ValidatorInterface
+    {
+        return new IsType();
     }
 
     /**

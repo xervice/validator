@@ -143,7 +143,7 @@ class ValidatorFacadeTest extends \Codeception\Test\Unit
     public function testValidationFailWrongType()
     {
         $this->expectException(ValidationException::class);
-        $this->expectExceptionMessage('Data not valid. Property "floatTest" have the type string but bool expected');
+        $this->expectExceptionMessage('Data not valid. Property "isTest" have the type string but boolean expected');
 
         $sample = $this->getSuccessSampleData();
         $validatorPlugins = $this->getValidatorPlugins();
@@ -167,7 +167,7 @@ class ValidatorFacadeTest extends \Codeception\Test\Unit
 
         $sample = $this->getSuccessSampleData();
         $validatorPlugins = $this->getValidatorPlugins();
-        $sample['floatTest'] = 'wrong';
+        $sample['floatTest'] = 3.21;
 
         $this->tester->getFacade()->validate($sample, $validatorPlugins);
     }

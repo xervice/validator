@@ -86,6 +86,10 @@ class ValidatorProvider implements ValidatorProviderInterface
      */
     protected function validateField(array $data, string $fieldName, $config)
     {
+        if (is_callable($config)) {
+            echo '1';
+        }
+
         foreach ($this->validatorTypes as $validatorType) {
             if ($validatorType->isResponsible($config)) {
                 $validatorType->validate($data, $fieldName, $config);
@@ -125,12 +129,10 @@ class ValidatorProvider implements ValidatorProviderInterface
 
         if (strpos($key, '.*') !== false) {
             $this->validateAllArrayFields($data, $key, $fieldConfig);
-        }
-        elseif (strpos($key, '.') !== false) {
+        } elseif (strpos($key, '.') !== false) {
             $this->validateArrayKey($data, $key, $fieldConfig);
-        }
-        elseif (is_string($fieldConfig)) {
-            $this->validateField($data, $fieldConfig, $fieldConfig);
+        } else {
+            $this->validateField($data, $key, $fieldConfig);
         }
     }
 
