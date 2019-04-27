@@ -149,7 +149,7 @@ class ValidatorProvider implements ValidatorProviderInterface
     {
         $context = explode('.', $key);
         $subdata = $data;
-        $lastKey = array_key_last($context);
+        $lastKey = $this->array_key_last($context);
         foreach ($context as $subkey => $chain) {
             if ($subkey !== $lastKey) {
                 $subdata = $subdata[$chain];
