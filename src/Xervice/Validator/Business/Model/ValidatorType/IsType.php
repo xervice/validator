@@ -20,7 +20,7 @@ class IsType implements ValidatorInterface
     /**
      * @param array $data
      * @param string $key
-     * @param $config
+     * @param array $config
      *
      * @return void
      * @throws \Xervice\Validator\Business\Exception\ValidationException

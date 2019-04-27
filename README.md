@@ -1,5 +1,8 @@
 # Validator
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/xervice/validator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/xervice/validator/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/xervice/validator/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/xervice/validator/?branch=master)
+
 
 ## Installation
 ```

@@ -84,14 +84,10 @@ class ValidatorProvider implements ValidatorProviderInterface
     /**
      * @param array $data
      * @param string $fieldName
-     * @param $config
+     * @param mixed $config
      */
-    protected function validateField(array $data, string $fieldName, $config)
+    protected function validateField(array $data, string $fieldName, $config): void
     {
-        if (is_callable($config)) {
-            echo '1';
-        }
-
         foreach ($this->validatorTypes as $validatorType) {
             if ($validatorType->isResponsible($config)) {
                 $validatorType->validate($data, $fieldName, $config);
@@ -101,10 +97,10 @@ class ValidatorProvider implements ValidatorProviderInterface
 
     /**
      * @param array $data
-     * @param $key
+     * @param string $key
      * @param mixed $fieldConfig
      */
-    protected function validateArrayKey(array $data, $key, $fieldConfig): void
+    protected function validateArrayKey(array $data, string $key, $fieldConfig): void
     {
         $context = explode('.', $key);
         $subdata = $data;
@@ -120,8 +116,8 @@ class ValidatorProvider implements ValidatorProviderInterface
 
     /**
      * @param array $data
-     * @param $key
-     * @param $fieldConfig
+     * @param mixed $key
+     * @param mixed $fieldConfig
      */
     protected function validateByType(array $data, $key, $fieldConfig): void
     {
@@ -142,10 +138,10 @@ class ValidatorProvider implements ValidatorProviderInterface
 
     /**
      * @param array $data
-     * @param $key
-     * @param $fieldConfig
+     * @param string $key
+     * @param mixed $fieldConfig
      */
-    protected function validateAllArrayFields(array $data, $key, $fieldConfig): void
+    protected function validateAllArrayFields(array $data, string $key, $fieldConfig): void
     {
         $context = explode('.', $key);
         $subdata = $data;

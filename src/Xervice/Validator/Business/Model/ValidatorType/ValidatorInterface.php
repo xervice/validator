@@ -7,7 +7,8 @@ interface ValidatorInterface
 {
     /**
      * @param array $data
-     * @param $config
+     * @param string $key
+     * @param mixed $config
      */
     public function validate(array $data, string $key, $config): void;
 }

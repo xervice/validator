@@ -15,7 +15,7 @@ class ValidatorFacade extends AbstractFacade
     /**
      * @param array $data
      * @param string $key
-     * @param $config
+     * @param mixed $config
      */
     public function validateClosure(array $data, string $key, $config): void
     {

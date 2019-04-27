@@ -11,7 +11,7 @@ class IsRequired implements ValidatorInterface
     /**
      * @param array $data
      * @param string $key
-     * @param $config
+     * @param mixed $config
      *
      * @return void
      * @throws \Xervice\Validator\Business\Exception\ValidationException
@@ -52,7 +52,7 @@ class IsRequired implements ValidatorInterface
     /**
      * @param array $data
      * @param string $key
-     * @param $config
+     * @param array $config
      *
      * @return bool
      */
@@ -69,7 +69,7 @@ class IsRequired implements ValidatorInterface
 
     /**
      * @param array $data
-     * @param $config
+     * @param string $config
      *
      * @throws \Xervice\Validator\Business\Exception\ValidationException
      */
@@ -83,7 +83,7 @@ class IsRequired implements ValidatorInterface
     /**
      * @param array $data
      * @param string $key
-     * @param $config
+     * @param array $config
      *
      * @throws \Xervice\Validator\Business\Exception\ValidationException
      */

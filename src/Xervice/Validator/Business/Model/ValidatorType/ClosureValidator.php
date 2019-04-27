@@ -11,7 +11,7 @@ class ClosureValidator implements ValidatorInterface
     /**
      * @param array $data
      * @param string $key
-     * @param $config
+     * @param callable $config
      *
      * @return void
      * @throws \Xervice\Validator\Business\Exception\ValidationException
