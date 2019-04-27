@@ -43,7 +43,8 @@ class ValidatorProvider implements ValidatorProviderInterface
             foreach ($this->configurationPlugins as $configurationPlugin) {
                 $this->validateByPlugin($data, $configurationPlugin);
             }
-        } catch (ValidationException $exception) {
+        }
+        catch (ValidationException $exception) {
             throw new ValidationException(
                 sprintf(
                     'Data not valid. %s',
@@ -62,7 +63,8 @@ class ValidatorProvider implements ValidatorProviderInterface
         foreach ($configurationProviderPlugin->getValidatorConfiguration() as $fieldConfig) {
             if (is_string($fieldConfig)) {
                 $this->validateField($data, $fieldConfig, $fieldConfig);
-            } else {
+            }
+            else {
                 $this->validateNested($data, $fieldConfig);
             }
         }
@@ -106,7 +108,7 @@ class ValidatorProvider implements ValidatorProviderInterface
     {
         $context = explode('.', $key);
         $subdata = $data;
-        $lastKey = array_key_last($context);
+        $lastKey = $this->array_key_last($context);
         $lastChain = $context[$lastKey];
         foreach ($context as $subkey => $chain) {
             if ($subkey !== $lastKey) {
@@ -129,9 +131,11 @@ class ValidatorProvider implements ValidatorProviderInterface
 
         if (strpos($key, '.*') !== false) {
             $this->validateAllArrayFields($data, $key, $fieldConfig);
-        } elseif (strpos($key, '.') !== false) {
+        }
+        elseif (strpos($key, '.') !== false) {
             $this->validateArrayKey($data, $key, $fieldConfig);
-        } else {
+        }
+        else {
             $this->validateField($data, $key, $fieldConfig);
         }
     }
@@ -155,5 +159,19 @@ class ValidatorProvider implements ValidatorProviderInterface
         foreach ($subdata as $childkey => $childdata) {
             $this->validateField($subdata, $childkey, $fieldConfig);
         }
+    }
+
+    /**
+     * @param array $array
+     *
+     * @return mixed
+     */
+    private function array_key_last(array $array)
+    {
+        if (!function_exists("array_key_last")) {
+            return array_keys($array)[count($array) - 1];
+        }
+
+        return array_key_last($array);
     }
 }
