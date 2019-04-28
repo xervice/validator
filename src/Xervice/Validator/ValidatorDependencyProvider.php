@@ -16,6 +16,7 @@ use Xervice\Validator\Communication\Plugin\ValidatorType\IsTypePlugin;
 class ValidatorDependencyProvider extends AbstractDependencyProvider
 {
     public const VALIDATOR_TYPE_PLUGINS = 'validator.type.plugins';
+    public const ARRAY_HANDLER_FACADE = 'validator.array.handler.facade';
 
     /**
      * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
@@ -25,6 +26,7 @@ class ValidatorDependencyProvider extends AbstractDependencyProvider
     public function handleDependencies(DependencyContainerInterface $container): DependencyContainerInterface
     {
         $container = $this->addValidatorTypePlugins($container);
+        $container = $this->addArrayHandlerFacade($container);
 
         return $container;
     }
@@ -46,4 +48,17 @@ class ValidatorDependencyProvider extends AbstractDependencyProvider
 
         return $container;
     }
+
+    /**
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
+     */
+    protected function addArrayHandlerFacade(DependencyContainerInterface $container): DependencyContainerInterface
+    {
+        $container[static::ARRAY_HANDLER_FACADE] = function (DependencyContainerInterface $container) {
+            return $container->getLocator()->arrayHandler()->facade();
+        };
+        return $container;
+}
 }
