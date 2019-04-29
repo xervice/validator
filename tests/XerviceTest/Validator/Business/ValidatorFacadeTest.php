@@ -185,6 +185,23 @@ class ValidatorFacadeTest extends \Codeception\Test\Unit
                 'subchild1' => 'Text 1',
                 'subchild2' => new \stdClass()
             ],
+            'fields' => [
+                [
+                    'data' => 'test'
+                ],
+                [
+                    'data' => 'test'
+                ],
+                [
+                    'data' => 'test'
+                ],
+                [
+                    'data' => 'test'
+                ],
+                [
+                    'data' => 'test'
+                ]
+            ],
             'secondField' => 'foo'
         ];
         return $sample;

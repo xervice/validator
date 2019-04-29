@@ -14,7 +14,12 @@ class AddTestValidatorConfig implements ValidatorConfigurationProviderPluginInte
     public function getValidatorConfiguration(): array
     {
         return [
-            'secondField'
+            'secondField',
+            [
+                'fields.*' => [
+                    'data'
+                ]
+            ]
         ];
     }
 }

@@ -15,7 +15,7 @@
   "require": {
     "php": ">=7.1.0",
     "xervice/core": "^4.0.0",
-    "xervice/array-handler": "^1.0.0"
+    "xervice/array-handler": "^1.2.1"
   },
   "autoload": {
     "psr-4": {

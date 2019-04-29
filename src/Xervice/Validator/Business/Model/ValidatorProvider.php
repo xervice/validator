@@ -6,7 +6,6 @@ namespace Xervice\Validator\Business\Model;
 
 use Xervice\ArrayHandler\Business\ArrayHandlerFacade;
 use Xervice\ArrayHandler\Dependency\FieldHandlerPluginInterface;
-use Xervice\Validator\Business\Dependency\ValidatorConfigurationProviderPluginInterface;
 use Xervice\Validator\Business\Exception\ValidationException;
 
 class ValidatorProvider implements ValidatorProviderInterface
