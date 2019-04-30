@@ -46,9 +46,8 @@ class TestValidatorConfig implements ValidatorConfigurationProviderPluginInterfa
             ],
             [
                 'child.*' => [
-                    'subchild1',
-                    'subchild2' => function ($value) {
-                        return is_object($value);
+                    function ($value) {
+                        return (is_string($value) || is_object($value));
                     }
                 ]
             ]
