@@ -36,20 +36,20 @@ class TestValidatorConfig implements ValidatorConfigurationProviderPluginInterfa
                 'floatTest' => function ($value) {
                     return $value === 1.23;
                 },
-                'child.subchild1',
-                'child.subchild2' => [
-                    'type' => IsType::TYPE_OBJECT
-                ],
-                'child.subchild3' => [
-                    'type' => IsType::TYPE_BOOLEAN
+                'child' => [
+                    'subchild1',
+                    'subchild2' => [
+                        'type' => IsType::TYPE_OBJECT
+                    ],
+                    'subchild3' => [
+                        'type' => IsType::TYPE_BOOLEAN
+                    ]
                 ]
             ],
             [
-                'child.*' => [
-                    function ($value) {
-                        return (is_string($value) || is_object($value));
-                    }
-                ]
+                'child.*' => function ($value) {
+                    return (is_string($value) || is_object($value));
+                }
             ]
         ];
     }

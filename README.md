@@ -25,44 +25,43 @@ class TestValidatorConfig implements ValidatorConfigurationProviderPluginInterfa
     public function getValidatorConfiguration(): array
     {
         return [
-            'unit',
-            'floatTest',
-            'child',
-            [
-                'unit' => [
-                    'type' => IsType::TYPE_INTEGER
-                ],
-                'floatTest' => [
-                    'type' => IsType::TYPE_FLOAT
-                ]
-            ],
-            [
-                'isTest' => [
-                    'required' => true,
-                    'type' => IsType::TYPE_BOOLEAN
-                ]
-            ],
-            [
-                'floatTest' => function ($value) {
-                    return $value === 1.23;
-                },
-                'child.subchild1',
-                'child.subchild2' => [
-                    'type' => IsType::TYPE_OBJECT
-                ],
-                'child.subchild3' => [
-                    'type' => IsType::TYPE_BOOLEAN
-                ]
-            ],
-            [
-                'child.*' => [
-                    'subchild1',
-                    'subchild2' => function ($value) {
-                        return is_object($value);
-                    }
-                ]
-            ]
-        ];
+           'unit',
+           'floatTest',
+           'child',
+           [
+               'unit' => [
+                   'type' => IsType::TYPE_INTEGER
+               ],
+               'floatTest' => [
+                   'type' => IsType::TYPE_FLOAT
+               ]
+           ],
+           [
+               'isTest' => [
+                   'required' => true,
+                   'type' => IsType::TYPE_BOOLEAN
+               ]
+           ],
+           [
+               'floatTest' => function ($value) {
+                   return $value === 1.23;
+               },
+               'child' => [
+                   'subchild1',
+                   'subchild2' => [
+                       'type' => IsType::TYPE_OBJECT
+                   ],
+                   'subchild3' => [
+                       'type' => IsType::TYPE_BOOLEAN
+                   ]
+               ]
+           ],
+           [
+               'child.*' => function ($value) {
+                   return (is_string($value) || is_object($value));
+               }
+           ]
+       ];
     }
 }
 ```
